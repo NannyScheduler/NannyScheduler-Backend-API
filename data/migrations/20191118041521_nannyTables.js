@@ -60,5 +60,9 @@ exports.up = function(knex) {
   };
   
   exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('accounts');
+    return knex.schema
+    .dropTableIfExists('todos')
+    .dropTableIfExists('nannies')
+    .dropTableIfExists('parents')
+    .dropTableIfExists('users');
   };
