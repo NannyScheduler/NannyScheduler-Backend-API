@@ -1,6 +1,6 @@
 # NannyScheduler-Backend-API
 
-Lovingly designed by Anu's Build Week Team. 
+😍 Lovingly designed by Anu's Build Week Team. 
 
 What's up so far: 
 1. Database schema design
