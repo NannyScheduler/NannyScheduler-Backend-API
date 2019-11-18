@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const server = express();
+const helper = require('./api/nanny-models');
 
 const port = 9000;
 
@@ -10,7 +11,10 @@ server.get('/', (req, res) => {
 });
 
 server.get('/nannies', (req, res) => {
-    
+    helper.findAllNannies()
+    .then(nannies=> {
+        res.status(201).json({nannies});
+    })
 })
 
 server.listen(port, ()=>console.log("The server is alive!"));

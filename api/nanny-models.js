@@ -1,7 +1,7 @@
 const db = require('../data/dbConfig');
 
 module.exports = {
-findAllNannies,
+    findAllNannies,
 }
 
 function findAllNannies(){
