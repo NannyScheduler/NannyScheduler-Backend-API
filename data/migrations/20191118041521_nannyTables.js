@@ -55,7 +55,7 @@ exports.up = function(knex, Promise) {
         .unsigned()
         .notNullable()
         .references('nanny_id')
-        .increments('nannies')
+        .inTable('nannies')
     })
   };
   
