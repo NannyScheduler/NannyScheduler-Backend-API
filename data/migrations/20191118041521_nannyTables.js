@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
       tbl.increments();
       tbl.string('email', 128).unique().notNullable();
       tbl.string('password', 128).notNullable();
-      tbl.boolean('is_admin', 128).notNullable();
+      tbl.boolean('is_admin').notNullable();
       tbl.timestamp('created_at').defaultTo(knex.fn.now());
     })
     .createTable('parents', tbl => {
@@ -26,7 +26,7 @@ exports.up = function(knex, Promise) {
         tbl.string('skill1', 128).notNullable();
         tbl.string('skill2', 128);
         tbl.string('skill3', 128);
-        tbl.boolean('can_drive', 128).notNullable();
+        tbl.boolean('can_drive').notNullable();
         tbl.boolean('first_aid', 128).notNullable();
         tbl.string('address', 128).notNullable();
         tbl.string('phone', 128).notNullable();
@@ -38,6 +38,24 @@ exports.up = function(knex, Promise) {
         .notNullable()
         .references('id')
         .inTable('users')
+    })
+    .createTable('todos', tbl => {
+        tbl.increments();
+        tbl.string('name', 128).notNullable();
+        tbl.string('description', 128);
+        tbl.boolean('completed').notNullable();
+        tbl.string('duration', 128).notNullable();
+        tbl.timestamp('created_at').defaultTo(knex.fn.now());
+        tbl.integer('parent_id')
+        .unsigned()
+        .notNullable()
+        .references('parent_id')
+        .inTable('parents');
+        tbl.integer('nanny_id')
+        .unsigned()
+        .notNullable()
+        .references('nanny_id')
+        .increments('nannies')
     })
   };
   
