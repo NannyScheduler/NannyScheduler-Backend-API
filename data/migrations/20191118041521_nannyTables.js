@@ -31,7 +31,7 @@ exports.up = function(knex, Promise) {
         tbl.string('address', 128).notNullable();
         tbl.string('phone', 128).notNullable();
         tbl.string('img', 128);
-        tbl.string('language', 128);
+        tbl.string('lang', 128);
         tbl.timestamp('created_at').defaultTo(knex.fn.now());
         tbl.integer('nanny_id')
         .unsigned()
